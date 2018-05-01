@@ -1,0 +1,162 @@
+/* Removed because it was causing issues with flexbox... */
+/*html, body {
+  height: 100%;
+}*/
+
+body {
+  display:flex;
+  flex-direction: column;
+
+  background: #333140;
+  font-size: 14px;
+}
+
+.main-header {
+  flex: 0 1 auto; /* Translates to: "I do not want to grow any larger; I will shrink as needed; please calculate my size for me." */
+}
+
+.logo-text {
+  background: #F2AB27;
+  color: #FFFFFF;
+  font-family: 'Gamja Flower', cursive;
+  font-size: 60px;
+  margin: 40px 0;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.main-content {
+  display: flex;
+  flex: 1 1 auto; /* Translates to: "I would like to grow as much as possible; I will shrink as needed; please calculate my size for me." */
+  flex-direction: column;
+}
+
+/* THUMBNAIL LIST STYLES */
+.thumbnail-list {
+  flex: 0 1 auto;
+  order: 2; /* Control the order in which elements are drawn, source order default value is 0, can be any interger */
+  display: flex;
+  justify-content: space-between;
+
+  list-style: none;
+  padding: 0;
+
+  /* Prevent from wrapping and add a horizontal scrollbar */
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.thumbnail-item {
+  border: 1px solid rbg(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8);
+  display: inline-block;
+  margin-right: 20px;
+  max-width: 120px;
+  min-width: 120px;
+}
+
+/*
+
+  Adjacent sibling selector:
+  Selects all thumbnail-item elements immeiately preceded by a sibling thumbnail-item element
+  Will target all <li> except for the first one
+
+  Section no longer needed when switching layout to flexbox
+
+*/
+/*.thumbnail-item + .thumbnail-item {
+  margin-top: 10px;
+}*/
+
+.thumbnail-image {
+  display: block;
+  width: 100%;
+}
+
+.thumbnail-title {
+  display: block;
+  margin: 0;
+  padding: 4px 10px;
+
+  background: #F24E29;
+  color: #FFFFFF;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.thumbnail-item a {
+  text-decoration: none;
+}
+
+/* DETAIL IMAGE STYLES */
+.detail-image-container {
+  flex: 1 1 auto;
+  display: flex;
+  margin-bottom: 40px;
+
+  /* Center horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-image-frame {
+  text-align: center;
+  position: relative; /* Necessary for absolute positioning on child, this div maintains normal flow */
+}
+
+.detail-image {
+  width: 90%;
+}
+
+.detail-image-title {
+  color: #FFFFFF;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 40px;
+  text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+
+  /* Positioning */
+  position: absolute;
+  bottom: -16px;
+  left: 4px;
+}
+
+@media all and (min-width: 768px) {
+
+  .main-content {
+    flex-direction: row;
+    overflow: hidden; /* Continue to scroll independently of the browser window */
+  }
+
+  .thumbnail-list {
+    /* Reverses order set for desktop */
+    flex-direction: column;
+    order: 0;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    /* Add vertical scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height:500px;
+  }
+
+  .thumbnail-item {
+    max-width: 260px;
+  }
+
+  .thumbnail-item + .thumbnail-item {
+    /* Top spacing for all items that have items before them */
+    margin-top: 20px;
+  }
+
+  .thumbnail-list {
+    margin-top: 0;
+  }
+
+  .detail-image-container {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
