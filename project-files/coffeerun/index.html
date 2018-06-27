@@ -3,8 +3,79 @@
   <head>
     <meta charset="utf-8">
     <title>coffeerun</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"></link>
   </head>
-  <body>
+  <body class="container">
+    <header>
+      <h1>CoffeeRun</h1>
+    </header>
+
+    <section>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form data-coffee-order="form">
+            <!-- Divs in forms necessary for bootstrap -->
+            <!-- COFFEE ORDER -->
+            <div class="form-group">
+              <!-- Match the label's 'for attribute' to the 'id attribute' of the form element -->
+              <!-- This makes it so that clicking on the form label makes the linked form element active -->
+              <label for="coffeeOrder">Coffee Order</label>
+              <!-- autofocus makes it so the input is ready to start typing in as soon as the page loads -->
+              <input class="form-control" name="coffee" id="coffeeOrder" autofocus>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+              <label for="emailInput">Email</label>
+              <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" placeholder="you@email.com">
+            </div>
+
+            <!-- COFFEE SIZE RADIO BUTTONS -->
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="short">
+                Short
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="tall" checked>
+                Tall
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="size" value="grande">
+                Grande
+              </label>
+            </div>
+
+            <!-- FLAVOR DROP DOWN -->
+            <div class="form-group">
+              <label for="flavor-shot">Flavor Shot</label>
+              <select id="flavorShot" class="form-control" name="flavor">
+                <option value="">None</option>
+                <option value="caramel">Caramel</option>
+                <option value="almond">Almond</option>
+                <option value="mocha">Mocha</option>
+              </select>
+            </div>
+
+            <!-- CAFFENINE SLIDER -->
+            <div class="form-group">
+              <label for="strengthLevel">Caffeine Rating</label>
+              <input name="strength" id="strengthLevel" type="range" value="30">
+            </div>
+
+            <!-- SUBMIT AND RESET BUTTONS -->
+            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
     <script src="scripts/datastore.js" charset="utf-8"></script>
     <script src="scripts/truck.js" charset="utf-8"></script>
     <script src="scripts/main.js" charset="utf-8"></script>
