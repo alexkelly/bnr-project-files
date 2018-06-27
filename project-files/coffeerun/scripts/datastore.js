@@ -82,4 +82,5 @@ Basic IIFE (immediately-invoked function expression) Structure
   // Attach DataStore to the App object and reassign the global App property to the modified App
   App.DataStore = DataStore;
   window.App = App;
+  
 })(window);
